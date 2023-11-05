@@ -1,37 +1,48 @@
-task = []
-def add_tak(task):
-    task.append(task)
-    print(f"Added task:{task}")
-def remove_task(task):
-    if task in task:
-        task.remove(task)
-        print(f"Remove task: {task}")
+# Initialize an empty to-do list
+todo_list = []
+
+# Function to add a task to the to-do list
+def add_task(task):
+    todo_list.append(task)
+    print(f"Task '{task}' has been added to the to-do list.")
+
+# Function to display the to-do list
+def display_list():
+    if todo_list:
+        print("To-Do List:")
+        for index, task in enumerate(todo_list, 1):
+            print(f"{index}. {task}")
     else:
-        print(f"{task} not found")
-        
-def view_task():
-    print("To-do list: ")
-    for i, task in enumerate(task):
-        print(f"{i+1}. {task}")
+        print("Your to-do list is empty.")
+
+# Function to remove a task from the to-do list
+def remove_task(index):
+    if 1 <= index <= len(todo_list):
+        removed_task = todo_list.pop(index - 1)
+        print(f"Task '{removed_task}' has been removed from the to-do list.")
+    else:
+        print("Invalid index. Please enter a valid task number.")
+
+# Main program loop
 while True:
-    
-    print("/nWhat do you want to do")
+    print("\nOptions:")
     print("1. Add a task")
-    print("2. Remove a task")
-    print("3. View all task")
-    print("4. Exit")
-    choice = input("Enter choice: ")
+    print("2. Display the to-do list")
+    print("3. Remove a task")
+    print("4. Quit")
+
+    choice = input("Enter your choice (1/2/3/4): ")
+
     if choice == "1":
-        
-        task = input("Enter task: ")
+        task = input("Enter the task you want to add: ")
         add_task(task)
     elif choice == "2":
-        task = input("Enter task to remove: ")
-        remove_task(task)
+        display_list()
     elif choice == "3":
-        view_task()
+        index = int(input("Enter the task number you want to remove: "))
+        remove_task(index)
     elif choice == "4":
-        print("Exiting: ")
+        print("Goodbye!")
         break
     else:
-        print("Put valid choice. ")
+        print("Invalid choice. Please enter a valid option.")
