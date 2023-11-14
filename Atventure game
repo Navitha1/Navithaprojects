@@ -1,0 +1,55 @@
+import time
+
+def display_intro():
+    print("Welcome to the Adventure Game!")
+    time.sleep(1)
+    print("You find yourself in a mysterious land...\n")
+
+def make_decision():
+    print("What will you do?")
+    print("1. Explore the dark cave")
+    print("2. Cross the rickety bridge")
+    return input("Enter the number of your choice: ")
+
+def explore_cave():
+    print("You enter the cave and encounter a dragon!")
+    time.sleep(1)
+    print("What do you do?")
+    print("1. Fight the dragon")
+    print("2. Try to sneak past")
+    return input("Enter the number of your choice: ")
+
+def cross_bridge():
+    print("As you cross the bridge, it begins to collapse!")
+    time.sleep(1)
+    print("What do you do?")
+    print("1. Run to the other side")
+    print("2. Jump into the river below")
+    return input("Enter the number of your choice: ")
+
+def main():
+    display_intro()
+
+    decision1 = make_decision()
+
+    if decision1 == '1':
+        decision2 = explore_cave()
+        if decision2 == '1':
+            print("You defeat the dragon and find a hidden treasure!")
+        elif decision2 == '2':
+            print("The dragon spots you, and you become its lunch...")
+        else:
+            print("Invalid input. Game over.")
+    elif decision1 == '2':
+        decision3 = cross_bridge()
+        if decision3 == '1':
+            print("You make it to the other side just in time!")
+        elif decision3 == '2':
+            print("You survive the fall but end up in a den of wolves...")
+        else:
+            print("Invalid input. Game over.")
+    else:
+        print("Invalid input. Game over.")
+
+if __name__ == "__main__":
+    main()
